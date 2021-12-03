@@ -1,4 +1,6 @@
-import { add } from "../utils/numbers";
+import {
+  add
+} from "../utils/numbers";
 
 /**
  * Finish the test so that it checks if the result
@@ -10,5 +12,6 @@ describe("01-exercise", () => {
     expect.assertions(1);
 
     // Finish the test
+    expect(add(2, 4)).toBe(6);
   });
 });
