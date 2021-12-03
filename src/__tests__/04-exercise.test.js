@@ -32,6 +32,16 @@ describe("04-exercises", () => {
      */
 
     // Write the assertions
+    const user = createUserObject("Alex", "Spence", "alex@gmail.com");
+
+    expect(user.firstName).toBeTruthy();
+    expect(user.lastName).toBeTruthy();
+    expect(user.email).toBeTruthy();
+
+    // In this case you need to change assertions to 1 -> assertions(1)
+    // expect(Object.keys(user)).toEqual(["firstName", "lastName", "email"]);
+
+
   });
 
   test("createCorporateEmailAddress appends the corporate email domain", () => {
@@ -45,6 +55,11 @@ describe("04-exercises", () => {
      */
 
     // Write the assertion
+
+    expect(createCorporateEmailAddress("dani")).toMatch(/@company.com/);
+    // This can also be solved this way by using toBe
+    // expect(createCorporateEmailAddress("dani")).toBe("dani@company.com");
+
   });
 
   test("generateRandomNumberFrom1to10 returns a number between 1 and 10", () => {
@@ -56,5 +71,10 @@ describe("04-exercises", () => {
      */
 
     // Write the assertions
+    expect(generateRandomNumberFrom1to10()).toBeGreaterThan(0);
+    // or...
+    // expect(generateRandomNumberFrom1to10()).toBeGreaterOrEqual(0);
+    expect(generateRandomNumberFrom1to10()).toBeLessThan(11);
+
   });
 });
