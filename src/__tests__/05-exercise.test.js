@@ -25,13 +25,22 @@ describe("05-exercises", () => {
      */
 
     // Write the assertion
+    expect(addItemToList(prevList, newItem)).toContain(newItem);
   });
 
   test("addUser adds a new user to the list of users", () => {
     expect.assertions(1);
 
-    const users = [{ name: "dani" }, { name: "ana" }, { name: "andrew" }];
-    const expectedUser = { name: "maria" };
+    const users = [{
+      name: "dani"
+    }, {
+      name: "ana"
+    }, {
+      name: "andrew"
+    }];
+    const expectedUser = {
+      name: "maria"
+    };
 
     /**
      * Test that the addUser function returns an array of objects
@@ -46,6 +55,11 @@ describe("05-exercises", () => {
      */
 
     // Write the assertion
+    expect(addUser(users, 'maria')).toContainEqual(expectedUser);
+    // or
+    // expect(addUser(users, 'maria')).toEqual(
+    // expect.arrayContaining([expectedUser]));
+    // )
   });
 
   test("getWeekDays returns an array of week days", () => {
@@ -62,13 +76,18 @@ describe("05-exercises", () => {
      */
 
     // Write the assertion
+    expect(getWeekDays()).toEqual(expect.arrayContaining(expectedDays));
   });
 
   test("makeAdminUser returns an object with the role property", () => {
     expect.assertions(1);
 
-    const user = { name: "dani" };
-    const expectedProperty = { role: "ADMIN" };
+    const user = {
+      name: "dani"
+    };
+    const expectedProperty = {
+      role: "ADMIN"
+    };
 
     /**
      * Write an assertion that executing the makeAdminUser function
@@ -82,6 +101,7 @@ describe("05-exercises", () => {
      */
 
     // Write the assertion
+    expect(makeAdminUser(user)).toEqual(expect.objectContaining(expectedProperty));
   });
 
   test("getUserInfo returns an object without the address properties", () => {
@@ -93,7 +113,10 @@ describe("05-exercises", () => {
       streetName: "Sert 1",
     };
 
-    const user = { name: "dani", ...userAddress };
+    const user = {
+      name: "dani",
+      ...userAddress
+    };
 
     /**
      * Write an assertion that executing the getUserInfo function returns
@@ -107,5 +130,6 @@ describe("05-exercises", () => {
      */
 
     // Write the assertion
+    expect(getUserInfo(user)).not.toEqual(expect.objectContaining(userAddress));
   });
 });
